@@ -66,6 +66,8 @@ FocusScope {
     property Item backButton: null
     property var dialog: null
     property Item editor: null
+    
+    property bool iconos: true
 
     function positionViewAtBeginning() {
         gridView.positionViewAtBeginning();
@@ -235,6 +237,7 @@ FocusScope {
         property int dragY: -1
         property variant cPress: null
         property bool doubleClickInProgress: false
+        property bool doubleOnNothing: false
 
         acceptedButtons: {
             if (hoveredItem == null && main.isRootView) {
@@ -338,6 +341,20 @@ FocusScope {
 
         onClicked: {
             clearPressState();
+            
+            if(hoveredItem == null){
+                if(doubleOnNothing){
+                    doubleOnNothing=false
+                    if(plasmoid.configuration.doubleclickhide){
+                        iconos= iconos?false:true
+                    }
+                }else{
+                    doubleOnNothing=true
+                    doubleOnNothingTimer.interval = Qt.styleHints.mouseDoubleClickInterval;
+                    doubleOnNothingTimer.start();
+                }
+                
+            }
 
             if (mouse.button === Qt.RightButton ||
                 (editor && childAt(mouse.x, mouse.y) === editor)) {
@@ -371,6 +388,7 @@ FocusScope {
             }
 
             pos = mapToItem(hoveredItem.actionsOverlay, mouse.x, mouse.y);
+            
 
             if (!(pos.x <= hoveredItem.actionsOverlay.width && pos.y <= hoveredItem.actionsOverlay.height)) {
                 if (Qt.styleHints.singleClickActivation || doubleClickInProgress) {
@@ -520,6 +538,15 @@ FocusScope {
                 listener.doubleClickInProgress = false;
             }
         }
+        
+        Timer {
+            id: doubleOnNothingTimer
+
+            onTriggered: {
+                 listener.doubleOnNothing= false
+//                 iconos= iconos?false:true
+            }
+        }
 
         Timer {
             id: hoverActivateTimer
@@ -625,9 +652,15 @@ FocusScope {
                 }
 
                 delegate: FolderItemDelegate {
+                    id: foldericonos
+                    visible: iconos
                     width: gridView.cellWidth
                     height: gridView.cellHeight
                 }
+                
+//                 onDoubleClicked{
+//                     iconos= iconos?false:true
+//                 }
 
                 onContentXChanged: {
                     if (hoveredItem) {
@@ -665,6 +698,7 @@ FocusScope {
                 }
 
                 onContentYChanged: {
+                    
                     if (hoveredItem) {
                         hoverActivateTimer.stop();
                     }
@@ -1079,6 +1113,11 @@ FocusScope {
 
                     onIconSizeChanged: {
                         gridView.iconSize = gridView.makeIconSize();
+                    }
+                    
+                    onDoubleclickhideChanged:{
+                        if(!plasmoid.configuration.doubleclickhide){iconos= true}
+                        
                     }
                 }
                 

@@ -55,6 +55,8 @@ Item {
     property alias cfg_iconSize: iconSize.value
     property alias cfg_labelWidth: labelWidth.currentIndex
     property alias cfg_textLines: textLines.value
+    
+    property alias cfg_doubleclickhide: doubleclick.checked
 
     readonly property bool lockedByKiosk: !KAuthorized.authorize("editable_desktop_icons")
 
@@ -128,6 +130,13 @@ Item {
         Item {
             visible: isPopup
             Kirigami.FormData.isSection: true
+        }
+        
+        
+        CheckBox {
+            id: doubleclick
+
+            text: i18n("Hide icons with a double click in an empty area")
         }
 
 

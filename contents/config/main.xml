@@ -131,5 +131,10 @@
       <label>List of MIME types to filter by.</label>
       <default>all/all</default>
     </entry>
+    
+    <entry name="doubleclickhide" type="Bool" hidden="true">
+      <label></label>
+      <default>true</default>
+    </entry>
   </group>
 </kcfg>
