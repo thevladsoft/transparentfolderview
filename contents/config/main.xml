@@ -136,5 +136,26 @@
       <label></label>
       <default>true</default>
     </entry>
+    
+    <entry name="userdefinedback" type="Bool">
+      <label>.</label>
+      <default>false</default>
+    </entry>
+    
+    <entry name="usethemebackcolor" type="Bool">
+      <label>.</label>
+      <default>true</default>
+    </entry>
+    
+    <entry name="usercolor" type="String">
+      <label>.</label>
+      <default>gray</default>
+    </entry>
+    
+    <entry name="opacityslider" type="Int">
+      <label>..</label>
+      <default>50</default>
+    </entry>
+    
   </group>
 </kcfg>
