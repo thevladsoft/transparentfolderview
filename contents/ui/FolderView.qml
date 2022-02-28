@@ -67,7 +67,13 @@ FocusScope {
     property var dialog: null
     property Item editor: null
     
-    property bool iconos: true
+    property bool iconos: plasmoid.configuration.iconsHidden
+
+    Binding {
+        target: plasmoid.configuration
+        property: "iconsHidden"
+        value: iconos
+    }
 
     function positionViewAtBeginning() {
         gridView.positionViewAtBeginning();
@@ -346,7 +352,7 @@ FocusScope {
                 if(doubleOnNothing){
                     doubleOnNothing=false
                     if(plasmoid.configuration.doubleclickhide){
-                        iconos= iconos?false:true
+                        iconos = !iconos
                     }
                 }else{
                     doubleOnNothing=true
@@ -1115,10 +1121,7 @@ FocusScope {
                         gridView.iconSize = gridView.makeIconSize();
                     }
                     
-                    onDoubleclickhideChanged:{
-                        if(!plasmoid.configuration.doubleclickhide){iconos= true}
-                        
-                    }
+                    onDoubleclickhideChanged: iconos = true
                 }
                 
                 Connections {
