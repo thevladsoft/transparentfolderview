@@ -136,7 +136,12 @@
       <label></label>
       <default>true</default>
     </entry>
-    
+
+    <entry name="iconsHidden" type="Bool">
+      <label> Whether currently the icons are hidden or not if user uses the double click to hide/unhide them</label>
+      <default>true</default>
+    </entry>
+
     <entry name="userdefinedback" type="Bool">
       <label>.</label>
       <default>false</default>
