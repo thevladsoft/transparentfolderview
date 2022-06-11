@@ -135,6 +135,7 @@ Item {
         
         CheckBox {
             id: doubleclick
+            visible: !isPopup
 
             text: i18n("Hide icons with a double click in an empty area")
         }

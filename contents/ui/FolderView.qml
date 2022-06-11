@@ -351,7 +351,7 @@ FocusScope {
             if(hoveredItem == null){
                 if(doubleOnNothing){
                     doubleOnNothing=false
-                    if(plasmoid.configuration.doubleclickhide){
+                    if(plasmoid.configuration.doubleclickhide && !isPopup){
                         iconos = !iconos
                     }
                 }else{
