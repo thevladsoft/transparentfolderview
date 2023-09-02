@@ -222,12 +222,12 @@ Item {
         // View Mode section (only if we're a pop-up)
         ComboBox {
             id: viewMode
-            visible: isPopup
+            visible: true/*isPopup*/
             Layout.fillWidth: true
 
             Kirigami.FormData.label: i18nc("whether to use icon or list view", "View mode:")
 
-            model: [i18n("List"), i18n("Icons")]
+            model: [i18n("Icons"),i18n("List")]
         }
 
 

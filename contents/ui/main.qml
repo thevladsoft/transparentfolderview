@@ -84,7 +84,7 @@ FolderViewDropArea {
     property bool isFolder: true//(plasmoid.pluginName === "org.kde.plasma.folder")
     property bool isContainment: ("containmentType" in plasmoid)
     property bool isPopup: (plasmoid.location !== PlasmaCore.Types.Floating)
-    property bool useListViewMode: isPopup && plasmoid.configuration.viewMode === 0
+    property bool useListViewMode: /*isPopup && */plasmoid.configuration.viewMode /*=== 0*/
 
     property Component appletAppearanceComponent
     property Item toolBox
