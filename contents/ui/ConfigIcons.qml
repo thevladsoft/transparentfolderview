@@ -55,6 +55,7 @@ Item {
     property alias cfg_iconSize: iconSize.value
     property alias cfg_labelWidth: labelWidth.currentIndex
     property alias cfg_textLines: textLines.value
+    property alias cfg_columnas: columnas.value
     
     property alias cfg_doubleclickhide: doubleclick.checked
 
@@ -236,7 +237,7 @@ Item {
             id: iconSize
 
             Layout.fillWidth: true
-            visible: !isPopup || viewMode.currentIndex === 1
+            visible: !isPopup && !viewMode.currentIndex/* === 1*/
 
             Kirigami.FormData.label: i18n("Icon size:")
 
@@ -251,7 +252,7 @@ Item {
 
             Label {
                 Layout.alignment: Qt.AlignLeft
-                visible: !isPopup || viewMode.currentIndex === 1
+                visible: !isPopup && !viewMode.currentIndex/* === 1*/
 
                 text: i18n("Small")
             }
@@ -260,7 +261,7 @@ Item {
             }
             Label {
                 Layout.alignment: Qt.AlignRight
-                visible: !isPopup || viewMode.currentIndex === 1
+                visible: !isPopup && !viewMode.currentIndex/* === 1*/
 
                 text: i18n("Large")
             }
@@ -268,7 +269,7 @@ Item {
 
         ComboBox {
             id: labelWidth
-            visible: !isPopup || viewMode.currentIndex === 1
+            visible: !isPopup && !viewMode.currentIndex/* === 1*/
             Layout.fillWidth: true
 
             Kirigami.FormData.label: i18n("Label width:")
@@ -282,12 +283,23 @@ Item {
 
         SpinBox {
             id: textLines
-            visible: !isPopup || viewMode.currentIndex === 1
+            visible: !isPopup && !viewMode.currentIndex/* === 1*/
 
             Kirigami.FormData.label: i18n("Text lines:")
 
             from: 1
             to: 10
+            stepSize: 1
+        }
+        
+       SpinBox {
+            id: columnas
+            visible: isPopup || viewMode.currentIndex/* === 1*/
+
+            Kirigami.FormData.label: i18n("Columns:")
+
+            from: 1
+            to: 5
             stepSize: 1
         }
 

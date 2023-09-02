@@ -70,7 +70,7 @@ Item {
         // leading to blurry rendering. The Loader is offset to account for this.
         x: -main.x % 1
         y: -main.y % 1
-        width: parent.width
+        width: parent.width*(plasmoid.configuration.viewMode == 0 ? 1: 0.90)
         height: parent.height
 
         visible: status === Loader.Ready

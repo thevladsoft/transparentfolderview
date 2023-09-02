@@ -110,6 +110,10 @@
       <label>The (maximum) number of lines of text to use below Folder View icons.</label>
       <default>2</default>
     </entry>
+    <entry name="columnas" type="Int">
+      <label>The (maximum) number of columns in List View.</label>
+      <default>1</default>
+    </entry>
     <entry name="textColor" type="String">
       <label>The text color to use below Folder View icons. Only used when serving as containment.</label>
       <default>white</default>

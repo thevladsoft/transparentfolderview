@@ -625,10 +625,17 @@ FocusScope {
                     }
                     return Math.floor(extraSpacing);
                 }
+                
+                add: Transition {
+                    NumberAnimation { property: "opacity"; from: 0; to: 1; duration: 500 }
+                }
+                displaced: Transition {
+                    NumberAnimation { properties: "x,y"; duration: 400; easing.type: Easing.OutBounce }
+                }
 
                 cellWidth: {
                     if (root.useListViewMode) {
-                        return gridView.width;
+                        return gridView.width*1/plasmoid.configuration.columnas;
                     } else {
                         var iconWidth = iconSize + (2 * units.largeSpacing) + (2 * units.smallSpacing);
                         if (root.isContainment && isRootView && scrollArea.viewportWidth > 0) {
