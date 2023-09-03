@@ -1438,7 +1438,7 @@ FocusScope {
     }
 
     Component.onCompleted: {
-        if (backButton == null && root.useListViewMode) {
+        if (backButton == null /*&& root.useListViewMode*/) {
             backButton = makeBackButton();
         }
     }

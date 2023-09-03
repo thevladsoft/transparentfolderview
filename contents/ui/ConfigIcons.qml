@@ -237,7 +237,7 @@ Item {
             id: iconSize
 
             Layout.fillWidth: true
-            visible: !isPopup && !viewMode.currentIndex/* === 1*/
+            visible: /*!isPopup &&*/ !viewMode.currentIndex/* === 1*/
 
             Kirigami.FormData.label: i18n("Icon size:")
 
@@ -252,7 +252,7 @@ Item {
 
             Label {
                 Layout.alignment: Qt.AlignLeft
-                visible: !isPopup && !viewMode.currentIndex/* === 1*/
+                visible: /*!isPopup && */!viewMode.currentIndex/* === 1*/
 
                 text: i18n("Small")
             }
@@ -261,7 +261,7 @@ Item {
             }
             Label {
                 Layout.alignment: Qt.AlignRight
-                visible: !isPopup && !viewMode.currentIndex/* === 1*/
+                visible: /*!isPopup && */!viewMode.currentIndex/* === 1*/
 
                 text: i18n("Large")
             }
@@ -269,7 +269,7 @@ Item {
 
         ComboBox {
             id: labelWidth
-            visible: !isPopup && !viewMode.currentIndex/* === 1*/
+            visible: /*!isPopup &&*/ !viewMode.currentIndex/* === 1*/
             Layout.fillWidth: true
 
             Kirigami.FormData.label: i18n("Label width:")
@@ -283,7 +283,7 @@ Item {
 
         SpinBox {
             id: textLines
-            visible: !isPopup && !viewMode.currentIndex/* === 1*/
+            visible: /*!isPopup && */!viewMode.currentIndex/* === 1*/
 
             Kirigami.FormData.label: i18n("Text lines:")
 
@@ -294,7 +294,7 @@ Item {
         
        SpinBox {
             id: columnas
-            visible: isPopup || viewMode.currentIndex/* === 1*/
+            visible:/* isPopup || */viewMode.currentIndex/* === 1*/
 
             Kirigami.FormData.label: i18n("Columns:")
 
@@ -326,7 +326,7 @@ Item {
 
         CheckBox {
             id: popups
-            visible: !isPopup
+            visible: /*!isPopup*/!viewMode.currentIndex
 
             text: i18n("Folder preview popups")
         }
