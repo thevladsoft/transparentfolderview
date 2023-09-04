@@ -86,6 +86,10 @@
       <label>Whether to show a popup preview window for Folder View icons for folders.</label>
       <default>true</default>
     </entry>
+    <entry name="dolphin" type="Bool">
+      <label>Whether to show an icon to open folder on dolphin in list view mode.</label>
+      <default>true</default>
+    </entry>
     <entry name="previews" type="Bool">
       <label>Whether to show preview thumbnails in Folder View.</label>
       <default>true</default>

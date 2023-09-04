@@ -49,6 +49,7 @@ Item {
     property alias cfg_toolTips: toolTips.checked
     property alias cfg_selectionMarkers: selectionMarkers.checked
     property alias cfg_popups: popups.checked
+    property alias cfg_dolphin: dolphin.checked
     property alias cfg_previews: previews.checked
     property alias cfg_previewPlugins: previewPluginsDialog.previewPlugins
     property alias cfg_viewMode: viewMode.currentIndex
@@ -329,6 +330,13 @@ Item {
             visible: /*!isPopup*/!viewMode.currentIndex
 
             text: i18n("Folder preview popups")
+        }
+        
+       CheckBox {
+            id: dolphin
+            visible: /*!isPopup*/viewMode.currentIndex
+
+            text: i18n("Press arrow icon to open in Dolphin")
         }
 
         CheckBox {

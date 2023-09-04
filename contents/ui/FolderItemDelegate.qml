@@ -124,7 +124,7 @@ Item {
                             hoverActivateTimer.restart();
                         }
 
-                        if (plasmoid.configuration.popups && !root.useListViewMode) {
+                        if ((plasmoid.configuration.popups && !root.useListViewMode) || (plasmoid.configuration.dolphin && root.useListViewMode)) {
                             popupButton = popupButtonComponent.createObject(actions);
                         }
                     }
@@ -431,7 +431,7 @@ Item {
 
                         onClicked: {
                             dir.setSelected(positioner.map(index))
-                            openPopup();
+                            plasmoid.configuration.viewMode ? dir.run(dir.resolvedUrl) :  openPopup();
                         }
                     }
                 }
@@ -516,8 +516,10 @@ Item {
                 ]
             }
 
-            Column {
+            Grid {
                 id: actions
+                columns: plasmoid.configuration.viewMode ? 2 : 1
+                rows: plasmoid.configuration.viewMode ? 1: 2
 
                 visible: {
                     if (main.GridView.view.isRootView && root.containsDrag) {
@@ -538,7 +540,7 @@ Item {
                 anchors {
                     left: frameLoader.left
                     top: frameLoader.top
-                    leftMargin: root.useListViewMode ? (icon.x + (icon.width / 2)) - (width / 2) : 0
+                    leftMargin: root.useListViewMode ? (icon.x + (icon.width / (isDir && plasmoid.configuration.dolphin ? 1 : 2))) - (width / 2) : 0
                     topMargin: root.useListViewMode ? (icon.y + (icon.height / 2)) - (height / 2)  : 0
                 }
 
