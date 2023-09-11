@@ -536,7 +536,19 @@ FocusScope {
             pressX = -1;
             pressY = -1;
         }
+        
+        
+        Timer {
+            id: refreshTimer
+            interval: plasmoid.configuration.refreshtime*1000
+            repeat: true
+            running:plasmoid.configuration.forcerefresh && iconos
 
+            onTriggered: {
+                dir.refresh();
+            }
+        }
+        
         Timer {
             id: doubleClickTimer
 

@@ -58,8 +58,10 @@ Item {
     property alias cfg_textLines: textLines.value
     property alias cfg_columnas: columnas.value
     
+    property alias cfg_forcerefresh: forcerefresh.checked
+    property alias cfg_refreshtime: refreshtime.value
+    
     property alias cfg_doubleclickhide: doubleclick.checked
-    property alias cfg_warningHidden: warning.checked
 
     readonly property bool lockedByKiosk: !KAuthorized.authorize("editable_desktop_icons")
 
@@ -362,6 +364,26 @@ Item {
             onClicked: {
                 previewPluginsDialog.visible = true;
             }
+        }
+        
+        CheckBox {
+            id: forcerefresh
+            visible: true
+            
+            Kirigami.FormData.label: i18n("Force refresh of folder:")
+
+            text: i18n("(use only if it's not being refreshed automatically)")
+        }
+        
+        SpinBox {
+            id: refreshtime
+            visible: forcerefresh.checked
+
+            Kirigami.FormData.label: i18n("Forced refresh time in seconds:")
+
+            from: 1
+            // to: 5
+            stepSize: 1
         }
     }
 

@@ -175,5 +175,15 @@
       <default>50</default>
     </entry>
     
+    <entry name="forcerefresh" type="Bool">
+      <label>Force refresh every refreshtime seconds</label>
+      <default>false</default>
+    </entry>
+    
+    <entry name="refreshtime" type="Int">
+      <label>Force refresh time in seconds</label>
+      <default>5</default>
+    </entry>
+    
   </group>
 </kcfg>
