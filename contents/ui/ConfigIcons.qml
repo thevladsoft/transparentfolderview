@@ -59,6 +59,7 @@ Item {
     property alias cfg_columnas: columnas.value
     
     property alias cfg_doubleclickhide: doubleclick.checked
+    property alias cfg_warningHidden: warning.checked
 
     readonly property bool lockedByKiosk: !KAuthorized.authorize("editable_desktop_icons")
 
@@ -140,6 +141,12 @@ Item {
             visible: !isPopup
 
             text: i18n("Hide icons with a double click in an empty area")
+        }
+        CheckBox {
+            id: warning
+            visible: doubleclick.visible && doubleclick.checked
+
+            text: i18n("Show a message when icons are hidden")
         }
 
 

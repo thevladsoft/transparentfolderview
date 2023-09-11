@@ -149,6 +149,11 @@
       <label> Whether currently the icons are hidden or not if user uses the double click to hide/unhide them</label>
       <default>true</default>
     </entry>
+    
+    <entry name="warningHidden" type="Bool">
+      <label> Should it show a message when icons are hidden</label>
+      <default>true</default>
+    </entry>
 
     <entry name="userdefinedback" type="Bool">
       <label>.</label>
