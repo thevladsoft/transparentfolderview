@@ -62,6 +62,7 @@ Item {
     property alias cfg_refreshtime: refreshtime.value
     
     property alias cfg_doubleclickhide: doubleclick.checked
+    property alias cfg_warningHidden: warning.checked
 
     readonly property bool lockedByKiosk: !KAuthorized.authorize("editable_desktop_icons")
 
