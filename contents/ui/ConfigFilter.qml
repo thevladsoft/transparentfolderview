@@ -50,7 +50,8 @@ ColumnLayout {
         sortOrder: mimeTypesView.sortIndicatorOrder
 
         function checkFiltered() {
-            var types = [];
+            // var types = [];
+            var types = mimeTypesModel.checkedTypes;
 
             for (var i = 0; i < count; ++i) {
                 types.push(get(i).name);
