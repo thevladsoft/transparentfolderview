@@ -430,8 +430,9 @@ Item {
                         element: "open"
 
                         onClicked: {
-                            dir.setSelected(positioner.map(index))
-                            plasmoid.configuration.viewMode ? dir.run(dir.resolvedUrl) :  openPopup();
+                            // dir.clearSelection()
+                            // dir.setSelected(positioner.map(index))
+                            plasmoid.configuration.viewMode ? dir.run(index) :  openPopup();
                         }
                     }
                 }
