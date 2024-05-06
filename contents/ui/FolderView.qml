@@ -68,6 +68,7 @@ FocusScope {
     property Item editor: null
     
     property bool iconos: plasmoid.configuration.iconsHidden
+    property bool iconoshover: true
 
     Binding {
         target: plasmoid.configuration
@@ -344,6 +345,7 @@ FocusScope {
 
         onCanceled: pressCanceled()
         onReleased: pressCanceled()
+        
 
         onClicked: {
             clearPressState();
@@ -419,10 +421,12 @@ FocusScope {
             var leftEdge = Math.min(gridView.contentX, gridView.originX);
 
             if (!item || item.blank) {
+                iconoshover = false
                 if (gridView.hoveredItem && !root.containsDrag && (!dialog || !dialog.containsDrag) && !gridView.hoveredItem.popupDialog) {
                     gridView.hoveredItem = null;
                 }
             } else {
+                iconoshover = true
                 var fPos = mapToItem(item.frame, mouse.x, mouse.y);
 
                 if (fPos.x < 0 || fPos.y < 0 || fPos.x > item.frame.width || fPos.y > item.frame.height) {
@@ -678,7 +682,7 @@ FocusScope {
 
                 delegate: FolderItemDelegate {
                     id: foldericonos
-                    visible: iconos
+                    visible: !plasmoid.configuration.hoverunhide? iconos : iconos||iconoshover
                     width: gridView.cellWidth
                     height: gridView.cellHeight
                 }

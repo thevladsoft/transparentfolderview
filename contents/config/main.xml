@@ -144,6 +144,11 @@
       <label></label>
       <default>true</default>
     </entry>
+    
+    <entry name="hoverunhide" type="Bool" hidden="true">
+      <label></label>
+      <default>false</default>
+    </entry>
 
     <entry name="iconsHidden" type="Bool">
       <label> Whether currently the icons are hidden or not if user uses the double click to hide/unhide them</label>

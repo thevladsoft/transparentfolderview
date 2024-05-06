@@ -63,6 +63,7 @@ Item {
     
     property alias cfg_doubleclickhide: doubleclick.checked
     property alias cfg_warningHidden: warning.checked
+    property alias cfg_hoverunhide: hoverun.checked
 
     readonly property bool lockedByKiosk: !KAuthorized.authorize("editable_desktop_icons")
 
@@ -151,7 +152,12 @@ Item {
 
             text: i18n("Show a message when icons are hidden")
         }
+        CheckBox {
+            id: hoverun
+            visible: doubleclick.visible && doubleclick.checked
 
+            text: i18n("Show icons when hovered")
+        }
 
 
         // Arrangement section
