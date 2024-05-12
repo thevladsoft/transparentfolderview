@@ -68,7 +68,7 @@ FocusScope {
     property Item editor: null
     
     property bool iconos: plasmoid.configuration.iconsHidden
-    property bool iconoshover: true
+    // property bool iconoshover: true
 
     Binding {
         target: plasmoid.configuration

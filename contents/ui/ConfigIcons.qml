@@ -64,6 +64,7 @@ Item {
     property alias cfg_doubleclickhide: doubleclick.checked
     property alias cfg_warningHidden: warning.checked
     property alias cfg_hoverunhide: hoverun.checked
+    property alias cfg_hoverbackunhide: hoverbackun.checked
 
     readonly property bool lockedByKiosk: !KAuthorized.authorize("editable_desktop_icons")
 
@@ -157,6 +158,12 @@ Item {
             visible: doubleclick.visible && doubleclick.checked
 
             text: i18n("Show icons when hovered")
+        }
+        CheckBox {
+            id: hoverbackun
+            visible: hoverun.checked
+
+            text: i18n("User defined background follows this behavior")
         }
 
 

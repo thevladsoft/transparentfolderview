@@ -35,9 +35,13 @@ import org.kde.plasma.private.containmentlayoutmanager 1.0 as ContainmentLayoutM
 
 import "code/FolderTools.js" as FolderTools
 
+// property bool iconoshover: true
+
 FolderViewDropArea {
     id: root
     objectName:"folder"// isFolder ? "folder" : "desktop"
+    
+    property bool iconoshover: true
     
     Plasmoid.backgroundHints: plasmoid.configuration.userdefinedback ? PlasmaCore.Types.NoBackground :PlasmaCore.Types.ShadowBackground | PlasmaCore.Types.ConfigurableBackground
 
@@ -58,7 +62,7 @@ FolderViewDropArea {
             id: fondo
             x: root,x
             y: root,y
-            visible: plasmoid.configuration.userdefinedback
+            visible: !plasmoid.configuration.hoverunhide|| !plasmoid.configuration.hoverbackunhide? plasmoid.configuration.userdefinedback:plasmoid.configuration.userdefinedback&& iconoshover
             color: plasmoid.configuration.usethemebackcolor? theme.backgroundColor : plasmoid.configuration.usercolor
 //             color: "gray"
             width: root.width
