@@ -156,7 +156,7 @@ FocusScope {
     
     PlasmaComponents.Label {
         id:warningicons
-        text: i18n("Icons are hidden, double click to show again")
+        text: !plasmoid.configuration.hoverunhide? i18n("Icons are hidden, double click to show again"):i18n("Icons are hidden, double click or hover to show again")
         visible: !plasmoid.configuration.iconsHidden && plasmoid.configuration.warningHidden
     }
 
